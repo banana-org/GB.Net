@@ -11,49 +11,49 @@ namespace GamebananaApi.DataTypes
     class Model
     {
         //So many variables
-        bool animated;
-        string appsUsed;
-        Author authors;
-        string catId;
-        int contestId;
-        string creator;
-        double cumlativeRating;
-        string date;
-        string description;
-        class DownloadInfo
+        public bool animated { get; set; }
+        public string appsUsed { get; set; }
+        public Author authors { get; set; }
+        public string catId { get; set; }
+        public int contestId { get; set; }
+        public string creator { get; set; }
+        public double cumlativeRating { get; set; }
+        public string date { get; set; }
+        public string description { get; set; }
+        public class DownloadInfo
         {
-            bool fileExists;
-            int getFileSize;
-            string fileURL;
-            string downloads;
+            public bool fileExists { get; set; }
+            public int getFileSize { get; set; }
+            public string fileURL { get; set; }
+            public string downloads { get; set; }
         }
-        string feedbackInstructions;
-        string file;
-        class Flags
+        public string feedbackInstructions { get; set; }
+        public string file { get; set; }
+        public class Flags
         {
-            int[] activeFlagRowIDs;
-            bool isFlagged;
-            int activeFlagCount;
+           public int[] activeFlagRowIDs { get; set; }
+           public bool isFlagged { get; set; }
+           public int activeFlagCount { get; set; }
         }
-        string lastPostDate;
-        string lastPostUserId;
-        bool uvMapped;
-        string mdate;
-        string modnote;
-        string name;
-        int polycount;
-        int postcount;
-        double rating;
-        string screenshots;
-        int studioId;
-        string text;
-        bool isTextured;
-        bool isTrashed;
-        int tricount;
-        int userId;
-        int views;
-        int votes;
-        bool isWithheld;
+        public string lastPostDate { get; set; }
+        public string lastPostUserId { get; set; }
+        public bool uvMapped { get; set; }
+        public string mdate { get; set; }
+        public string modnote { get; set; }
+        public string name { get; set; }
+        public int polycount { get; set; }
+        public int postcount { get; set; }
+        public double rating { get; set; }
+        public string screenshots { get; set; }
+        public int studioId { get; set; }
+        public string text { get; set; }
+        public bool isTextured { get; set; }
+        public bool isTrashed { get; set; }
+        public int tricount { get; set; }
+        public int userId { get; set; }
+        public int views { get; set; }
+        public int votes { get; set; }
+        public bool isWithheld { get; set; }
 
         public void GetData (int ID, Model obj)
         {
