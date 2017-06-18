@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,49 +11,54 @@ namespace GamebananaApi.DataTypes
     class Model
     {
         //So many variables
-        public bool animated { get; set; }
-        public string appsUsed { get; set; }
-        public Author authors { get; set; }
-        public string catId { get; set; }
-        public int contestId { get; set; }
-        public string creator { get; set; }
-        public double cumlativeRating { get; set; }
-        public string date { get; set; }
-        public string description { get; set; }
+        public bool Animated { get; set; }
+        public string AppsUsed { get; set; }
+        public Author Authors { get; set; }
+        public string CatId { get; set; }
+        public int ContestId { get; set; }
+        public string Creator { get; set; }
+        public double CumlativeRating { get; set; }
+        public string Date { get; set; }
+        public string Description { get; set; }
         public class DownloadInfo
         {
-            public bool fileExists { get; set; }
-            public int getFileSize { get; set; }
-            public string fileURL { get; set; }
-            public string downloads { get; set; }
+            public bool FileExists { get; set; }
+            public int GetFileSize { get; set; }
+            public string FileURL { get; set; }
+            public string Downloads { get; set; }
         }
-        public string feedbackInstructions { get; set; }
-        public string file { get; set; }
+        public string FeedbackInstructions { get; set; }
+        public string File { get; set; }
         public class Flags
         {
-           public int[] activeFlagRowIDs { get; set; }
-           public bool isFlagged { get; set; }
-           public int activeFlagCount { get; set; }
+           public int[] ActiveFlagRowIDs { get; set; }
+           public bool IsFlagged { get; set; }
+           public int ActiveFlagCount { get; set; }
         }
-        public string lastPostDate { get; set; }
-        public string lastPostUserId { get; set; }
-        public bool uvMapped { get; set; }
-        public string mdate { get; set; }
-        public string modnote { get; set; }
-        public string name { get; set; }
-        public int polycount { get; set; }
-        public int postcount { get; set; }
-        public double rating { get; set; }
-        public string screenshots { get; set; }
-        public int studioId { get; set; }
-        public string text { get; set; }
-        public bool isTextured { get; set; }
-        public bool isTrashed { get; set; }
-        public int tricount { get; set; }
-        public int userId { get; set; }
-        public int views { get; set; }
-        public int votes { get; set; }
-        public bool isWithheld { get; set; }
+        public string LastPostDate { get; set; }
+        public string LastPostUserId { get; set; }
+        public bool UvMapped { get; set; }
+        public string Mdate { get; set; }
+        public string Modnote { get; set; }
+        public string Name { get; set; }
+        public int Polycount { get; set; }
+        public int Postcount { get; set; }
+        public double Rating { get; set; }
+        public string Screenshots { get; set; }
+        public int StudioId { get; set; }
+        public string Text { get; set; }
+        public bool IsTextured { get; set; }
+        public bool IsTrashed { get; set; }
+        public int Tricount { get; set; }
+        public int UserId { get; set; }
+        public int Views { get; set; }
+        public int Votes { get; set; }
+        public bool IsWithheld { get; set; }
+
+        public Model ()
+        {
+
+        }
 
         public void GetData (int ID, Model obj)
         {

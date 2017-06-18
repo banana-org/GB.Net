@@ -15,7 +15,5 @@ namespace GamebananaApi.DataTypes
         }
         public Skin() { }
 
-        public 
-
     }
 }
