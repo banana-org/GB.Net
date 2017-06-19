@@ -8,5 +8,8 @@ namespace GamebananaApi.DataTypes.SubTypes
 {
     class Author
     {
+        int UserID { get; set; }
+        string Role { get; set; }
+        string MemberName { get; set; }
     }
 }

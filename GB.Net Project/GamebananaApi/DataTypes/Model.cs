@@ -8,64 +8,61 @@ using Newtonsoft.Json;
 
 namespace GamebananaApi.DataTypes
 {
-    class Model
+    public class Model
     {
         //So many variables
-        public bool Animated { get; set; }
-        public string AppsUsed { get; set; }
-        public Author Authors { get; set; }
-        public string CatId { get; set; }
-        public int ContestId { get; set; }
-        public string Creator { get; set; }
-        public double CumlativeRating { get; set; }
-        public string Date { get; set; }
-        public string Description { get; set; }
-        public class DownloadInfo
-        {
-            public bool FileExists { get; set; }
-            public int GetFileSize { get; set; }
-            public string FileURL { get; set; }
-            public string Downloads { get; set; }
-        }
-        public string FeedbackInstructions { get; set; }
-        public string File { get; set; }
-        public class Flags
-        {
-           public int[] ActiveFlagRowIDs { get; set; }
-           public bool IsFlagged { get; set; }
-           public int ActiveFlagCount { get; set; }
-        }
-        public string LastPostDate { get; set; }
-        public string LastPostUserId { get; set; }
-        public bool UvMapped { get; set; }
-        public string Mdate { get; set; }
-        public string Modnote { get; set; }
-        public string Name { get; set; }
-        public int Polycount { get; set; }
-        public int Postcount { get; set; }
-        public double Rating { get; set; }
-        public string Screenshots { get; set; }
-        public int StudioId { get; set; }
-        public string Text { get; set; }
-        public bool IsTextured { get; set; }
-        public bool IsTrashed { get; set; }
-        public int Tricount { get; set; }
-        public int UserId { get; set; }
-        public int Views { get; set; }
-        public int Votes { get; set; }
-        public bool IsWithheld { get; set; }
+        public string animated { get; set; }
+        public string apps_used { get; set; }
+        public string authors { get; set; }
+        public int catid { get; set; }
+        public int contestid { get; set; }
+        public string creator { get; set; }
+        public string cumulative_rating { get; set; }
+        public int date { get; set; }
+        public string description { get; set; }
+        public bool Downloadableb_FileExists { get; set; }
+        public int Downloadable_nGetFilesize { get; set; }
+        public string Downloadable_sFileUrl { get; set; }
+        public int downloads { get; set; }
+        public string feedback_instructions { get; set; }
+        public string file { get; set; }
+        public int[] Flags_aGetActiveFlagRowIds { get; set; }
+        public int Flags_nGetActiveFlagsCount { get; set; }
+        public int lastpost_date { get; set; }
+        public int lastpost_userid { get; set; }
+        public string mapped { get; set; }
+        public int mdate { get; set; }
+        public string modnote { get; set; }
+        public string name { get; set; }
+        public string polycount { get; set; }
+        public int postcount { get; set; }
+        public int PostsPostcountnGetPostCount { get; set; }
+        public string rating { get; set; }
+        public string screenshots { get; set; }
+        public int Stats_nGetNewestSubmissionId { get; set; }
+        public int Stats_nGetSubmissionCount { get; set; }
+        public int studioid { get; set; }
+        public string text { get; set; }
+        public string textured { get; set; }
+        public bool TrashbIsTrashed { get; set; }
+        public string tricount { get; set; }
+        public int userid { get; set; }
+        public int views { get; set; }
+        public int votes { get; set; }
+        public bool WithholdbIsWithheld { get; set; }
 
-        public Model ()
+
+        public Model()
         {
 
         }
 
-        public void GetData (int ID, Model obj)
+        public void GetData(int ID, Model obj)
         {
             //For single-call api data to be retrieved and handled
         }
 
-        public void SetData (object obj)
+        public void SetData(object obj)
         {
             //For multi-call api data that has already been retrieved by ApiCaller.cs and sent here as an object that has yet to be decided
         }

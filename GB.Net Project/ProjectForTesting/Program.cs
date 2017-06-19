@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using GamebananaApi;
 using Newtonsoft.Json;
+using GamebananaApi.DataTypes;
 
 namespace ProjectForTesting
 {
@@ -14,16 +15,18 @@ namespace ProjectForTesting
         static WebClient web = new WebClient();
         static void Main(string[] args)
         {
-            //APICaller ApiManager = new APICaller(web);
+            APICaller ApiManager = new APICaller(web);
             //Console.WriteLine(ApiManager.Authenticate("Saghen", "RandomPassword"));
             //Console.WriteLine(ApiManager.Identify("Saghen"));
             //ApiManager.Data();
-            AddObjectNames("", JsonConvert.DeserializeObject<List<object>>(web.DownloadString("http://api.gamebanana.com/Core/Item/Data?itemtype=Model&itemid=4023&fields=animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().bSubmissionIsFlagged(),Flags().nGetActiveFlagsCount()")));
+            //AddObjectNames("", JsonConvert.DeserializeObject<List<object>>(web.DownloadString("http://api.gamebanana.com/Core/Item/Data?itemtype=Model&itemid=4023&fields=animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().bSubmissionIsFlagged(),Flags().nGetActiveFlagsCount()")));
+            Model meme = new Model();
+            meme = ApiManager.Data(meme, "3962");
         }
 
-        static public void AddObjectNames (string Fields, List<object> JSONDownload)
+        static public void AddObjectNames(string Fields, List<object> JSONDownload)
         {
-            
+
         }
     }
 }
