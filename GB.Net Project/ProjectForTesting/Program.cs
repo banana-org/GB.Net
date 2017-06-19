@@ -21,10 +21,5 @@ namespace ProjectForTesting
             Model exampleObject = new Model();
             exampleObject = ApiManager.Data(exampleObject, 3962, exampleObject.fields);
         }
-
-        static public void AddObjectNames(string Fields, List<object> JSONDownload)
-        {
-
-        }
     }
 }
