@@ -10,8 +10,14 @@ namespace GamebananaApi.DataTypes
 {
     public class Model
     {
-        public int ItemID;
+        public readonly int ItemID;
         public string fields = "animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().nGetActiveFlagsCount(),lastpost_date,lastpost_userid,mapped,mdate,modnote,name,polycount,postcount,Posts().Postcount().nGetPostCount(),rating,screenshots,Stats().nGetNewestSubmissionId(),Stats().nGetSubmissionCount(),studioid,text,textured,Trash().bIsTrashed(),tricount,userid,views,votes,Withhold().bIsWithheld()";
+        
+        public Model (int ID)
+        {
+            ID = ItemID;
+        }
+        
         //So many variables
         public string animated { get; set; }
         public string apps_used { get; set; }
@@ -52,23 +58,5 @@ namespace GamebananaApi.DataTypes
         public int views { get; set; }
         public int votes { get; set; }
         public bool WithholdbIsWithheld { get; set; }
-
-
-        public Model()
-        {
-
-        }
-
-        public void GetData(int ID, Model obj)
-        {
-            //For single-call api data to be retrieved and handled
-        }
-
-        public void SetData(object obj)
-        {
-            //For multi-call api data that has already been retrieved by ApiCaller.cs and sent here as an object that has yet to be decided
-        }
-
-        //Setup get and set for every variable 
     }
 }

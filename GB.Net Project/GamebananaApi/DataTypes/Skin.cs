@@ -9,6 +9,7 @@ namespace GamebananaApi.DataTypes
     class Skin
     {
         public int ID;
+        public string fields = "apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),lastpost_date,lastpost_userid,mdate,model_class,modnote,name,postcount,rating,render,screenshots,studioid,text,texture_class,Trash().bIsTrashed(),userid,views,votes,Withhold().bIsWithheld()";
         public Skin (int ItemID)
         {
             ID = ItemID;
