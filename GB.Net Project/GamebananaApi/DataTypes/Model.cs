@@ -10,8 +10,8 @@ namespace GamebananaApi.DataTypes
 {
     public class Model
     {
-        int ItemID;
-        string fields = "animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().nGetActiveFlagsCount(),lastpost_date,lastpost_userid,mapped,mdate,modnote,name,polycount,postcount,Posts().Postcount().nGetPostCount(),rating,screenshots,Stats().nGetNewestSubmissionId(),Stats().nGetSubmissionCount(),studioid,text,textured,Trash().bIsTrashed(),tricount,userid,views,votes,Withhold().bIsWithheld()";
+        public int ItemID;
+        public string fields = "animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().nGetActiveFlagsCount(),lastpost_date,lastpost_userid,mapped,mdate,modnote,name,polycount,postcount,Posts().Postcount().nGetPostCount(),rating,screenshots,Stats().nGetNewestSubmissionId(),Stats().nGetSubmissionCount(),studioid,text,textured,Trash().bIsTrashed(),tricount,userid,views,votes,Withhold().bIsWithheld()";
         //So many variables
         public string animated { get; set; }
         public string apps_used { get; set; }

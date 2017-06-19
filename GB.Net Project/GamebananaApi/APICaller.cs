@@ -48,10 +48,10 @@ namespace GamebananaApi
             else { return null; } //If the member does not exist, return null to the user
         }
 
-        public T Data<T>(T type, string itemid)
+        public T Data<T>(T type, int itemid, string fields)
         {
             //In-dev stages. Still writing Pseudo code for efficient implementation
-            return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields=&return_object=1", typeof(T).Name, itemid)));
+            return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields={2}&return_object=1", typeof(T).Name, itemid, fields)));
         }
     }
 }

@@ -18,10 +18,8 @@ namespace ProjectForTesting
             APICaller ApiManager = new APICaller(web);
             //Console.WriteLine(ApiManager.Authenticate("Saghen", "RandomPassword"));
             //Console.WriteLine(ApiManager.Identify("Saghen"));
-            //ApiManager.Data();
-            //AddObjectNames("", JsonConvert.DeserializeObject<List<object>>(web.DownloadString("http://api.gamebanana.com/Core/Item/Data?itemtype=Model&itemid=4023&fields=animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().bSubmissionIsFlagged(),Flags().nGetActiveFlagsCount()")));
-            Model meme = new Model();
-            meme = ApiManager.Data(meme, "3962");
+            Model exampleObject = new Model();
+            exampleObject = ApiManager.Data(exampleObject, 3962, exampleObject.fields);
         }
 
         static public void AddObjectNames(string Fields, List<object> JSONDownload)
