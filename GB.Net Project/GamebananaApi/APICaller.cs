@@ -51,7 +51,7 @@ namespace GamebananaApi
         public T Data<T>(T type, string itemid)
         {
             //In-dev stages. Still writing Pseudo code for efficient implementation
-            return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype=Model&itemid={0}&fields=animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().nGetActiveFlagsCount(),lastpost_date,lastpost_userid,mapped,mdate,modnote,name,polycount,postcount,Posts().Postcount().nGetPostCount(),rating,screenshots,Stats().nGetNewestSubmissionId(),Stats().nGetSubmissionCount(),studioid,text,textured,Trash().bIsTrashed(),tricount,userid,views,votes,Withhold().bIsWithheld()&return_object=1", itemid)));
+            return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields=animated,apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),Flags().nGetActiveFlagsCount(),lastpost_date,lastpost_userid,mapped,mdate,modnote,name,polycount,postcount,Posts().Postcount().nGetPostCount(),rating,screenshots,Stats().nGetNewestSubmissionId(),Stats().nGetSubmissionCount(),studioid,text,textured,Trash().bIsTrashed(),tricount,userid,views,votes,Withhold().bIsWithheld()&return_object=1", typeof(T).Name, itemid)));
         }
     }
 }

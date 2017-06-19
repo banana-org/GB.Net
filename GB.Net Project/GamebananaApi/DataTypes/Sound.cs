@@ -8,5 +8,6 @@ namespace GamebananaApi.DataTypes
 {
     class Sound
     {
+
     }
 }
