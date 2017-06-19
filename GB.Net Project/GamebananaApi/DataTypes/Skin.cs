@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GamebananaApi.DataTypes
+﻿namespace GamebananaApi.DataTypes
 {
-    class Skin
+    public class Skin
     {
-        public readonly  int ID;
+        public readonly int itemID;
         public readonly string fields = "apps_used,authors,catid,contestid,creator,cumulative_rating,date,description,Downloadable().bFileExists(),Downloadable().nGetFilesize(),Downloadable().sFileUrl(),downloads,feedback_instructions,file,Flags().aGetActiveFlagRowIds(),lastpost_date,lastpost_userid,mdate,model_class,modnote,name,postcount,rating,render,screenshots,studioid,text,texture_class,Trash().bIsTrashed(),userid,views,votes,Withhold().bIsWithheld()";
-        public Skin (int ItemID)
+        public Skin (int ID)
         {
-            ID = ItemID;
+            itemID = ID;
         }
 
+        //So many variables
         public string apps_used { get; set; }
         public string authors { get; set; }
         public int catid { get; set; }
