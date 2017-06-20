@@ -18,8 +18,16 @@ namespace ProjectForTesting
             APICaller ApiManager = new APICaller(web);
             //Console.WriteLine(ApiManager.Authenticate("Saghen", "RandomPassword"));
             //Console.WriteLine(ApiManager.Identify("Saghen"));
-            Model exampleObject = new Model();
-            exampleObject = ApiManager.Data(exampleObject, 3962, exampleObject.fields);
+            Model exampleObject = new Model(3962);
+            Model exampleObject2 = new Model(3962);
+            Model exampleObject3 = new Model(3962);
+            //exampleObject = ApiManager.Data(exampleObject, exampleObject.itemID, exampleObject.fields);
+
+            List<Model> SubmissionInstances = new List<Model>() { exampleObject, exampleObject2, exampleObject3 };
+            int[] IDs = new int[] { exampleObject.itemID, exampleObject2.itemID, exampleObject3.itemID };
+            string[] fields = new string[] { exampleObject.fields, exampleObject2.fields, exampleObject3.fields };
+
+            exampleObject = ApiManager.Data(SubmissionInstances, IDs, fields);
         }
     }
 }

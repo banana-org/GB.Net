@@ -50,7 +50,31 @@ namespace GamebananaApi
 
         public T Data<T>(T type, int itemid, string fields)
         {
-            //In-dev stages. Still writing Pseudo code for efficient implementation
+            //Grabs the submission type, id, and fields and deserializes the JSON object that the API returns
+            return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields={2}&return_object=1", typeof(T).Name, itemid, fields)));
+        }
+
+        public T Data<T>(List<T> type, int[] itemid, string[] fields)
+        {
+            //Same as the first function but supports multi-call
+            string itemTypes = "";
+            string itemIDs = "";
+            string itemFields = "";
+            string finalURL = "http://api.gamebanana.com/Core/Item/Data?";
+            foreach (object obj in type)
+            {
+                itemTypes += "&itemtype[]=" + obj.GetType().Name;
+            }
+            foreach (int ID in itemid)
+            {
+                itemIDs += "&itemid[]=" + ID;
+            }
+            foreach (string field in fields)
+            {
+                itemFields += "&fields[]=" + field;
+            }
+            finalURL += itemTypes + itemIDs + itemFields;
+
             return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields={2}&return_object=1", typeof(T).Name, itemid, fields)));
         }
     }
