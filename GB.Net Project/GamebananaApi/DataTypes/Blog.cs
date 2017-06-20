@@ -8,5 +8,33 @@ namespace GamebananaApi.DataTypes
 {
     class Blog
     {
+        public readonly int itemID;
+        public readonly string fields = "catid,contestid,date,description,feedback_instructions,Flags().aGetActiveFlagRowIds(),Flags().nGetActiveFlagsCount(),lastpost_date,lastpost_userid,mdate,name,postcount,screenshots,Stats().nGetNewestSubmissionId(),Stats().nGetSubmissionCount(),text,Trash().bIsTrashed(),userid,views,Withhold().bIsWithheld()";
+
+        public Blog(int ID)
+        {
+            itemID = ID;
+        }
+
+        public int catid { get; set; }
+        public int contestid { get; set; }
+        public int date { get; set; }
+        public string description { get; set; }
+        public string feedback_instructions { get; set; }
+        public int[] FlagsaGetActiveFlagRowIds { get; set; }
+        public int FlagsnGetActiveFlagsCount { get; set; }
+        public int lastpost_date { get; set; }
+        public int lastpost_userid { get; set; }
+        public int mdate { get; set; }
+        public string name { get; set; }
+        public int postcount { get; set; }
+        public string screenshots { get; set; }
+        public int StatsnGetNewestSubmissionId { get; set; }
+        public int StatsnGetSubmissionCount { get; set; }
+        public string text { get; set; }
+        public bool TrashbIsTrashed { get; set; }
+        public int userid { get; set; }
+        public int views { get; set; }
+        public bool WithholdbIsWithheld { get; set; }
     }
 }
