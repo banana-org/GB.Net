@@ -10,7 +10,7 @@
             itemID = ID;
         }
         
-        //So many variables
+        //Variables
         public string animated { get; set; }
         public string apps_used { get; set; }
         public string authors { get; set; }

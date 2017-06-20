@@ -9,7 +9,7 @@
             itemID = ID;
         }
 
-        //So many variables
+        //Variables
         public string apps_used { get; set; }
         public string authors { get; set; }
         public int catid { get; set; }
