@@ -27,7 +27,7 @@ namespace ProjectForTesting
             int[] IDs = new int[] { exampleObject.itemID, exampleObject2.itemID, exampleObject3.itemID };
             string[] fields = new string[] { exampleObject.fields, exampleObject2.fields, exampleObject3.fields };
 
-            exampleObject = ApiManager.Data(SubmissionInstances, IDs, fields);
+            ApiManager.Data(SubmissionInstances, IDs, fields);
         }
     }
 }

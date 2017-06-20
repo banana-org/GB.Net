@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 using Newtonsoft.Json;
 using System.Net;
 using GamebananaApi.DataTypes;
@@ -54,16 +55,21 @@ namespace GamebananaApi
             return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields={2}&return_object=1", typeof(T).Name, itemid, fields)));
         }
 
-        public T Data<T>(List<T> type, int[] itemid, string[] fields)
+        public List<object> Data<T>(List<T> type, int[] itemid, string[] fields)
         {
             //Same as the first function but supports multi-call
             string itemTypes = "";
+            Type[] types = new Type[type.Count];
             string itemIDs = "";
             string itemFields = "";
             string finalURL = "http://api.gamebanana.com/Core/Item/Data?";
+
+            int i = 0;
             foreach (object obj in type)
             {
                 itemTypes += "&itemtype[]=" + obj.GetType().Name;
+                types[i] = obj.GetType();
+                i++;
             }
             foreach (int ID in itemid)
             {
@@ -73,9 +79,23 @@ namespace GamebananaApi
             {
                 itemFields += "&fields[]=" + field;
             }
-            finalURL += itemTypes + itemIDs + itemFields;
+            finalURL += itemTypes + itemIDs + itemFields + "&return_object=1";
 
-            return JsonConvert.DeserializeObject<T>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data?itemtype={0}&itemid={1}&fields={2}&return_object=1", typeof(T).Name, itemid, fields)));
+            List<object> JSONObjects = JsonConvert.DeserializeObject(client.DownloadString(finalURL));
+            List<object> toReturn = new List<object>();
+
+            i = 0;
+            foreach (string str in JSONObjects)
+            {
+                toReturn.Add(GenericMethod(type[i], JSONObjects[i]));
+                i++;
+            }
+            return toReturn;
+        }
+
+        public T GenericMethod<T> (T obj, dynamic JSONObj)
+        {
+            return JsonConvert.DeserializeObject<T>(JSONObj);
         }
     }
 }
