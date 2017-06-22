@@ -51,7 +51,7 @@ namespace GamebananaApi
             else { return null; } //If the member does not exist, return null to the user
         }
 
-#endregion
+        #endregion
 
         #region Data
 
@@ -88,6 +88,15 @@ namespace GamebananaApi
             return toReturn;
         }
 
-#endregion
+        #endregion
+
+        #region List
+
+        public List<T> ListLike<T> (string itemtype, string field, string searchField)
+        {
+            return JsonConvert.DeserializeObject<List<T>>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/List/Like?itemtype={0}&field={1}&match={2}", itemtype, field, searchField)));
+        }
+
+        #endregion
     }
 }

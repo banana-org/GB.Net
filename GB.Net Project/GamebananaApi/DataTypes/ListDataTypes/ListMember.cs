@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace GamebananaApi.DataTypes.ListDataTypes
 {
-    class Member
+    public class ListMember
     {
         public int id { get; set; }
         public string name { get; set; }
+
+        public string fields = "name";
     }
 }

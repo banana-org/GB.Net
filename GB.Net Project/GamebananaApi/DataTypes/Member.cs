@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GamebananaApi.DataTypes
 {
-    class Member
+    public class Member
     {
     }
 }

@@ -7,6 +7,7 @@ using System.Net;
 using GamebananaApi;
 using Newtonsoft.Json;
 using GamebananaApi.DataTypes;
+using GamebananaApi.DataTypes.ListDataTypes;
 
 namespace ProjectForTesting
 {
@@ -27,6 +28,8 @@ namespace ProjectForTesting
             string[] fields = new string[] { exampleObject.fields, exampleObject2.fields, exampleObject3.fields };
 
             var wow = ApiManager.Data(SubmissionInstances, IDs, fields);
+
+            List<ListMember> nice = ApiManager.ListLike<ListMember>("Member", "name", "Saghen");
         }
     }
 }
