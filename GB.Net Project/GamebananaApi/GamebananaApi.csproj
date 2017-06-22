@@ -82,7 +82,6 @@
     <Compile Include="DataTypes\Ware.cs" />
     <Compile Include="DataTypes\Wiki.cs" />
     <Compile Include="DataTypes\Wip.cs" />
-    <Compile Include="GamebananaDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReturnTypes.cs" />
     <Compile Include="SubmissionType.cs" />
