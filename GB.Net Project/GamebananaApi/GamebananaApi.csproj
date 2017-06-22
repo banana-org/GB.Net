@@ -55,6 +55,7 @@
     <Compile Include="DataTypes\Forum.cs" />
     <Compile Include="DataTypes\Gamefile.cs" />
     <Compile Include="DataTypes\Idea.cs" />
+    <Compile Include="DataTypes\ListDataTypes\Member.cs" />
     <Compile Include="DataTypes\Map.cs" />
     <Compile Include="DataTypes\Medal.cs" />
     <Compile Include="DataTypes\Member.cs" />

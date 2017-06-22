@@ -13,7 +13,7 @@ namespace GamebananaApi
     public class APICaller
     {
         WebClient client;
-        //Note: Initializing a WebClient takes some time and thus makes the first run on them slower. Keeping one in memory should make calls quicker.
+        //Note: Initializing a WebClient takes some time and thus makes the first run on them slower. Keeping one in memory and using it for everything will result in only one initialization and therefore, should make calls quicker.
         string AuthKey = null;
         //Gonna implement some timer functionality to update the AuthKey when needed
         public APICaller(WebClient webclient)
@@ -27,6 +27,8 @@ namespace GamebananaApi
             if (deserObj[0] != "false") { AuthKey = deserObj[0]; }
             return deserObj[0];
         }
+
+        #region Identification
 
         public int Identify(string Username)
         {
@@ -48,6 +50,10 @@ namespace GamebananaApi
             if (deserObj[0] != "false") { return deserObj[0]; } //If the member exists, return the username
             else { return null; } //If the member does not exist, return null to the user
         }
+
+#endregion
+
+        #region Data
 
         public T Data<T>(T type, int itemid, string fields)
         {
@@ -81,5 +87,7 @@ namespace GamebananaApi
             toReturn = JsonConvert.DeserializeObject<List<T>>(client.DownloadString(new Uri(finalURL)));
             return toReturn;
         }
+
+#endregion
     }
 }
