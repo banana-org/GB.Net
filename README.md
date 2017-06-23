@@ -13,3 +13,4 @@
 - Authentication (Member and App)
 - Data (Single and Multi-call)
 - Search (Member only)
+- Identification (Via ID or Username)
