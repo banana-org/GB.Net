@@ -21,12 +21,19 @@ namespace GamebananaApi
             client = webclient; //Grabs our universal WebClient. Async is supported on it ofc.
         }
 
-        public string Authenticate(string Username, string Password)
+        public string MemberAuthenticate(string Username, string Password)
         {
             string[] deserObj = JsonConvert.DeserializeObject<string[]>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Member/Authenticate?username={0}&password={1}", Username, Password))); //Enters the specified Username and Password and returns false or the authkey
             if (deserObj[0] != "false") { AuthKey = deserObj[0]; }
             return deserObj[0];
         }
+
+        public string AppAuthenticate(string api_password, string app_id, string userid)
+        {
+            try { string[] tempArray = JsonConvert.DeserializeObject<string[]>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/App/Authenticate?api_password={0}&app_id={1}&userid={2}", api_password, app_id, userid))); return tempArray[0]; }
+            catch { return "false"; }
+        }
+
 
         #region Identification
 

@@ -30,6 +30,8 @@ namespace ProjectForTesting
             var wow = ApiManager.Data(SubmissionInstances, IDs, fields);
 
             List<ListMember> nice = ApiManager.ListLike<ListMember>("Member", "name", "Saghen");
+
+            string APIPassword = ApiManager.AppAuthenticate("145563CEF5637AD1", "565", "1377912");
         }
     }
 }
