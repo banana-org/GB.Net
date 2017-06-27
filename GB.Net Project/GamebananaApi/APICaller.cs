@@ -16,7 +16,7 @@ namespace GamebananaApi
         //Note: Initializing a WebClient takes some time and thus makes the first run on them slower. Keeping one in memory and using it for everything will result in only one initialization and therefore, should make calls quicker.
         string AuthKey = null;
         //Gonna implement some timer functionality to update the AuthKey when needed
-        public APICaller(WebClient webclient)
+        public APICaller(WebClient webclient, int UserID, string APIKey)
         {
             client = webclient; //Grabs our universal WebClient. Async is supported on it ofc.
         }
