@@ -6,7 +6,8 @@
 1. Get the GitHub for Visual Studio extension.
 2. Clone the repo and open it up in Visual Studio 2017. 
 3. Run the "ProjectForTesting" project and put breakpoints in the "GamebananaApi" project to see the function's results.
-4. Feel free to edit and revise any code as you see fit.
+4. Edit and revise any code as you see fit.
+5. Make a pull request on the repository so I can review your changes.
 
 # Supported GB Features
 
