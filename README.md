@@ -12,5 +12,20 @@
 
 - Authentication (Member and App)
 - Data (Single and Multi-call)
+- Supported Data Types and Fields
 - Search (Member only)
 - Identification (Via ID or Username)
+
+# Supported GB Submission Types
+
+- App
+- Article
+- Blog
+- Bug
+- Club
+- Concept
+- Effect
+- Gamefile
+- Member
+- Model
+- Skin
