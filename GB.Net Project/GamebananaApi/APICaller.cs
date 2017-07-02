@@ -15,8 +15,15 @@ namespace GamebananaApi
         WebClient client;
         //Note: Initializing a WebClient takes some time and thus makes the first run on them slower. Keeping one in memory and using it for everything will result in only one initialization and therefore, should make calls quicker.
         string AuthKey = null;
+        string ApiKey = null;
         //Gonna implement some timer functionality to update the AuthKey when needed
-        public APICaller(WebClient webclient, int UserID, string APIKey)
+        public APICaller(WebClient webclient, string APIKey)
+        {
+            client = webclient; //Grabs our universal WebClient. Async is supported on it ofc.
+            APIKey = ApiKey;
+        }
+
+        public APICaller(WebClient webclient)
         {
             client = webclient; //Grabs our universal WebClient. Async is supported on it ofc.
         }
@@ -24,13 +31,20 @@ namespace GamebananaApi
         public string MemberAuthenticate(string Username, string Password)
         {
             string[] deserObj = JsonConvert.DeserializeObject<string[]>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Member/Authenticate?username={0}&password={1}", Username, Password))); //Enters the specified Username and Password and returns false or the authkey
-            if (deserObj[0] != "false") { AuthKey = deserObj[0]; }
+            if (deserObj[0] != "false")
+            { 
+                //AuthKey = deserObj[0]; 
+            }
             return deserObj[0];
         }
 
         public string AppAuthenticate(string api_password, string app_id, string userid)
         {
-            try { string[] tempArray = JsonConvert.DeserializeObject<string[]>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/App/Authenticate?api_password={0}&app_id={1}&userid={2}", api_password, app_id, userid))); return tempArray[0]; }
+            try {
+                string[] tempArray = JsonConvert.DeserializeObject<string[]>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/App/Authenticate?api_password={0}&app_id={1}&userid={2}", api_password, app_id, userid)));
+                AuthKey = tempArray[0];
+                return tempArray[0];
+            }
             catch { return "false"; }
         }
 
@@ -93,6 +107,16 @@ namespace GamebananaApi
 
             toReturn = JsonConvert.DeserializeObject<List<T>>(client.DownloadString(new Uri(finalURL)));
             return toReturn;
+        }
+
+        public string[] AllowedItemTypes()
+        {
+            return JsonConvert.DeserializeObject<string[]>(client.DownloadString("http://api.gamebanana.com/Core/Item/Data/AllowedItemTypes"));
+        }
+
+        public string[] AllowedItemTypes(string itemtype)
+        {
+            return JsonConvert.DeserializeObject<string[]>(client.DownloadString(string.Format("http://api.gamebanana.com/Core/Item/Data/AllowedFields?itemtype={0}", itemtype)));
         }
 
         #endregion

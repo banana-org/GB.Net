@@ -32,6 +32,8 @@ namespace ProjectForTesting
             List<ListMember> nice = ApiManager.ListLike<ListMember>("Member", "name", "Saghen");
 
             string APIPassword = ApiManager.AppAuthenticate("145563CEF5637AD1", "565", "1377912");
+
+            ApiManager.AllowedItemTypes("memem");
         }
     }
 }
